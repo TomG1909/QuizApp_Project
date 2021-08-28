@@ -1,0 +1,55 @@
+body {
+    min-height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: rgb(243, 228, 209) !important;
+}
+
+.nav {
+    min-width: 200px;
+    min-height: 500px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.bg-color {
+    background-color: darkblue;
+}
+
+.card-body {
+    min-width: 500px;
+    border-bottom-right-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}
+
+.card-text {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 90px;
+    margin-top: 15px;
+}
+
+.nav-link {
+    font-size: 24px;
+}
+
+.link-light:hover {
+    color: coral !important;
+}
+
+.flex-column {
+    align-items: center;
+}
+
+.badge {
+    line-height: 2 !important;
+}
+
+h3 {
+    align-items: center;
+    justify-content: center;
+}
