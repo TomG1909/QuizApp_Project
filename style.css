@@ -17,10 +17,15 @@ body {
     background-color: darkblue;
 }
 
-.card-body {
-    min-width: 500px;
+.quizcard {
     border-bottom-right-radius: 8px !important;
     border-top-right-radius: 8px !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.card-body {
+    min-width: 500px;
 }
 
 .card-text {
@@ -52,4 +57,14 @@ body {
 h3 {
     align-items: center;
     justify-content: center;
+}
+
+.question-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress {
+    height: 8px !important;
+    margin-bottom: 5px;
 }
