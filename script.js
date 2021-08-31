@@ -21,9 +21,27 @@ let currentQuestion = 0;
 
 
 function init() {
-    document.getElementById('all-questions').innerHTML = questions.length;
+
+
+    showStartScreen();
+}
+
+function hideStartScreen() {
+
+    document.getElementById('start').classList.add('d-none');
+    document.getElementById('quizBody').style = '';
+
 
     showQuestion();
+
+}
+
+function showStartScreen() {
+
+    document.getElementById('start').classList.remove('d-none');
+    document.getElementById('quizBody').style = 'display: none';
+
+
 }
 
 function showQuestion() {
@@ -39,7 +57,7 @@ function showQuestion() {
 
     } else {
         let question = questions[currentQuestion];
-
+        document.getElementById('all-questions').innerHTML = questions.length;
         document.getElementById('questionNumber').innerHTML = currentQuestion + 1;
         document.getElementById('question').innerHTML = question['question'];
         document.getElementById('answer_1').innerHTML = question['answer_1'];

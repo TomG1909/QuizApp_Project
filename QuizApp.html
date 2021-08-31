@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 
@@ -23,17 +26,25 @@
         <div class="d-flex">
             <nav class="nav flex-column pl-8 bg-color">
                 <img class="logo" src="img/logo.png">
-                <a class="nav-link active link-light" aria-current="page" href="#">Active</a>
-                <a class="nav-link link-light" href="#">Link</a>
-                <a class="nav-link link-light" href="#">Link</a>
+                <a class="nav-link active link-light" aria-current="page" href="#" onclick="showStartScreen()">START</a>
+                <a class="nav-link link-light" href="#">QUIZ</a>
+                <a class="nav-link link-light" href="#">SCORE</a>
 
             </nav>
 
             <div class="quizcard card">
+                <div class="endscreen bg-startscreen" id="start">
+                    <h4>Welcome to the awsome HTML Quiz</h4>
+                    <span>Ready for the challange?</span>
+                    <button onclick="hideStartScreen()">Start</button>
+
+
+                </div>
                 <div id="endscreen" style="display:none">
                     <div class="endscreen">
                         <img class="logo-endscreen" src="img/brain result.png">
-                        <div class="score-container"><span class="score">Your score</span><span>10/10</span></div>
+                        <h4>COMPLETE HTML QUIZ!</h4>
+                        <div class="score-container"><span class="score">Your score</span><span class="result">10/10</span></div>
                         <button>share</button>
                         <button>replay</button>
                     </div>

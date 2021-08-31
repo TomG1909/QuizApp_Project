@@ -4,6 +4,7 @@ body {
     display: flex;
     align-items: center;
     background-color: rgb(243, 228, 209) !important;
+    font-family: 'Rubik', sans-serif;
 }
 
 .nav {
@@ -99,8 +100,27 @@ h3 {
 .score-container {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.bg-startscreen {
+    background-image: url("img/brainbg.jpg");
+    min-width: 500px;
+    min-width: 500px;
+    min-height: 500px;
+    margin-top: 0 !important;
+    background-position: center;
+}
+
+.result {
+    display: flex;
+    align-items: center;
 }
 
 .score {
     margin-right: 50px;
+    color: orange;
+    font-size: 25px;
+    font-weight: bold;
 }
