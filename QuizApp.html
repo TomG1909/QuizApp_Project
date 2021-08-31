@@ -30,38 +30,47 @@
             </nav>
 
             <div class="quizcard card">
-                <div class="card-body">
-                    <h3 class="d-flex mb-4">Wer hat HTML erfunden?</h3>
+                <div id="endscreen" style="display:none">
+                    <div class="endscreen">
+                        <img class="logo-endscreen" src="img/brain result.png">
+                        <div class="score-container"><span class="score">Your score</span><span>10/10</span></div>
+                        <button>share</button>
+                        <button>replay</button>
+                    </div>
+                </div>
 
-                    <div class="card border-secondary mb-3" style="max-width: 480px;">
+                <div class="card-body" id="quizBody">
+                    <h3 class="d-flex mb-4" id="question">Frage1</h3>
+
+                    <div class="card border-secondary mb-3 answer-card" style="max-width: 480px;" onclick="answer('answer_1')">
                         <div class="card-body text-secondary d-flex">
                             <h5 class="badge bg-secondary m-2">A</h5>
-                            <p class="card-text">Robbie Williams</p>
+                            <p class="card-text" id="answer_1">Antwort</p>
                         </div>
                     </div>
 
-                    <div class="card border-secondary mb-3" style="max-width: 480px;">
+                    <div class="card border-secondary mb-3 answer-card" style="max-width: 480px;" onclick="answer('answer_2')">
                         <div class="card-body text-secondary d-flex">
                             <h5 class="badge bg-secondary m-2">B</h5>
-                            <p class="card-text">Lady Gaga</p>
+                            <p class="card-text" id="answer_2">Antwort</p>
                         </div>
                     </div>
 
-                    <div class="card border-secondary mb-3" style="max-width: 480px;">
+                    <div class="card border-secondary mb-3 answer-card" style="max-width: 480px;" onclick="answer('answer_3')">
                         <div class="card-body text-secondary d-flex">
                             <h5 class="badge bg-secondary m-2">C</h5>
-                            <p class="card-text">Tim Berners-Lee</p>
+                            <p class="card-text" id="answer_3">Antwort</p>
                         </div>
                     </div>
-                    <div class="card border-secondary mb-3" style="max-width: 480px;">
+                    <div class="card border-secondary mb-3 answer-card" style="max-width: 480px;" onclick="answer('answer_4')">
                         <div class="card-body text-secondary d-flex">
                             <h5 class="badge bg-secondary m-2">D</h5>
-                            <p class="card-text">Justin Bieber</p>
+                            <p class="card-text" id="answer_4">Antwort</p>
                         </div>
                     </div>
-                    <div class="question-footer">
-                        <div><b>1</b> von <b>5</b> Fragen</div>
-                        <button>nächste Frage</button>
+                    <div class="question-footer" id="hide">
+                        <div><b id="questionNumber">1</b> von <b id="all-questions">5</b> Fragen</div>
+                        <button id="nextbutton" disabled onclick="nextQuestion()">nächste Frage</button>
 
                     </div>
                 </div>
