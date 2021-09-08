@@ -37,8 +37,8 @@ let questions = [{
 ]
 let currentQuestion = 0;
 let rightQuestions = 0;
-let audio_success = new Audio();
-let audio_fail = new Audio();
+let audio_success = new Audio('Audio/success.mp3');
+let audio_fail = new Audio('Audio/fail.mp3');
 
 function init() {
 
@@ -116,6 +116,7 @@ function answer(selection) {
 
         document.getElementById(selection).parentNode.parentNode.classList.add('bg-success');
         document.getElementById(selection).parentNode.classList.remove('text-secondary');
+        audio_success.play();
         rightQuestions++;
 
     } else {
@@ -124,6 +125,7 @@ function answer(selection) {
         document.getElementById(selection).parentNode.classList.remove('text-secondary');
         document.getElementById(idOfRightAnswer).parentNode.parentNode.classList.add('bg-success');
         document.getElementById(idOfRightAnswer).parentNode.classList.remove('text-secondary');
+        audio_fail.play();
     }
     document.getElementById('nextbutton').disabled = false;
 
