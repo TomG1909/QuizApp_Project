@@ -19,34 +19,37 @@
 
 <body onload=init()>
     <div class="main-container">
+
         <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" id="progress-bar" style="width: 0%">25%</div>
         </div>
 
         <div class="d-flex">
             <nav class="nav flex-column pl-8 bg-color">
                 <img class="logo" src="img/logo.png">
-                <a class="nav-link active link-light" aria-current="page" href="#" onclick="showStartScreen()">START</a>
-                <a class="nav-link link-light" href="#">QUIZ</a>
-                <a class="nav-link link-light" href="#">SCORE</a>
+                <a class="nav-link active link-light" id="startlink" aria-current="page" href="#" onclick="restartGame()">START</a>
+                <a class="nav-link link-light" id="quizlink" href="#">QUIZ</a>
+                <a class="nav-link link-light" id="scorelink" href="#">SCORE</a>
 
             </nav>
 
             <div class="quizcard card">
-                <div class="endscreen bg-startscreen" id="start">
-                    <h4>Welcome to the awsome HTML Quiz</h4>
-                    <span>Ready for the challange?</span>
-                    <button onclick="hideStartScreen()">Start</button>
-
-
+                <div class="bg-startscreen" id="start">
+                    <div class="endscreen">
+                        <h4>Welcome to the awsome HTML Quiz</h4>
+                        <span>Ready for the challange?</span>
+                    </div>
+                    <button class="btn" onclick="hideStartScreen()">START NOW ></button>
                 </div>
+
+
                 <div id="endscreen" style="display:none">
                     <div class="endscreen">
                         <img class="logo-endscreen" src="img/brain result.png">
                         <h4>COMPLETE HTML QUIZ!</h4>
-                        <div class="score-container"><span class="score">Your score</span><span class="result">10/10</span></div>
+                        <div class="score-container"><span class="score">Your score</span><span class="result"><b id="score">XX</b>/<b id="amountOfQuestions">XX</b></span></div>
                         <button>share</button>
-                        <button>replay</button>
+                        <button onclick="restartGame()">replay</button>
                     </div>
                 </div>
 

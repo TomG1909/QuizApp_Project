@@ -48,8 +48,20 @@ body {
     font-size: 24px;
 }
 
+.link-light {
+    padding-left: 60px!important;
+    padding-right: 60px !important;
+    width: 100%;
+    border-left: 5px solid transparent;
+}
+
 .link-light:hover {
     color: coral !important;
+}
+
+.active-link {
+    color: coral !important;
+    border-left: 5px solid coral;
 }
 
 .flex-column {
@@ -123,4 +135,20 @@ h3 {
     color: orange;
     font-size: 25px;
     font-weight: bold;
+}
+
+.btn {
+    background-color: orangered !important;
+    color: white !important;
+    position: absolute !important;
+    bottom: 20px;
+    right: 20px;
+}
+
+.disabled-link {
+    padding-left: 60px!important;
+    padding-right: 60px !important;
+    width: 100%;
+    border-left: 5px solid transparent;
+    opacity: 0.5;
 }

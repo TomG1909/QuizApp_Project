@@ -14,23 +14,44 @@ let questions = [{
         "answer_4": "HiperText Markup Language",
         "right_answer": 2,
 
+    },
+    {
+        "question": "Mit welchem Buchstaben lässt sich Fettdruck erreichen?",
+        "answer_1": "a",
+        "answer_2": "b",
+        "answer_3": "c",
+        "answer_4": "d",
+        "right_answer": 2,
+
+    },
+    {
+        "question": "Mit welchem Befehl beginnt jede Homepage-Programmierung?",
+        "answer_1": "html",
+        "answer_2": "body",
+        "answer_3": "title",
+        "answer_4": "b",
+        "right_answer": 1,
+
     }
 
 ]
 let currentQuestion = 0;
-
+let rightQuestions = 0;
+let audio_success = new Audio();
+let audio_fail = new Audio();
 
 function init() {
 
-
     showStartScreen();
 }
+
 
 function hideStartScreen() {
 
     document.getElementById('start').classList.add('d-none');
     document.getElementById('quizBody').style = '';
-
+    document.getElementById('startlink').classList.remove('active-link');
+    document.getElementById('quizlink').classList.add('active-link');
 
     showQuestion();
 
@@ -40,6 +61,11 @@ function showStartScreen() {
 
     document.getElementById('start').classList.remove('d-none');
     document.getElementById('quizBody').style = 'display: none';
+    document.getElementById('endscreen').style = 'display: none';
+    document.getElementById('startlink').classList.add('active-link');
+    document.getElementById('scorelink').classList.add('disabled-link');
+
+
 
 
 }
@@ -47,15 +73,23 @@ function showStartScreen() {
 function showQuestion() {
 
     if (currentQuestion >= questions.length) {
+        //Show End Screen
 
         document.getElementById('endscreen').style = '';
         document.getElementById('quizBody').style = 'display: none';
+        document.getElementById('amountOfQuestions').innerHTML = questions.length;
+        document.getElementById('score').innerHTML = rightQuestions;
 
 
+    } else { //Show next question
 
+        let percent = (currentQuestion + 1) / questions.length;
+        percent = percent * 100;
+        document.getElementById('progress-bar').innerHTML = `${percent}%`
+        document.getElementById('progress-bar').style = `width:${percent}%`
 
+        console.log('Fortschritt', percent)
 
-    } else {
         let question = questions[currentQuestion];
         document.getElementById('all-questions').innerHTML = questions.length;
         document.getElementById('questionNumber').innerHTML = currentQuestion + 1;
@@ -76,10 +110,14 @@ function answer(selection) {
 
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
+
     if (selectedQuestionNumber == question['right_answer']) {
         console.log('Richtige Antwort!!');
+
         document.getElementById(selection).parentNode.parentNode.classList.add('bg-success');
         document.getElementById(selection).parentNode.classList.remove('text-secondary');
+        rightQuestions++;
+
     } else {
         console.log('Falsche Antwort!!');
         document.getElementById(selection).parentNode.parentNode.classList.add('bg-danger');
@@ -88,6 +126,7 @@ function answer(selection) {
         document.getElementById(idOfRightAnswer).parentNode.classList.remove('text-secondary');
     }
     document.getElementById('nextbutton').disabled = false;
+
 
 }
 
@@ -115,4 +154,24 @@ function resetAnswers() {
     document.getElementById('answer_4').parentNode.parentNode.classList.remove('bg-danger');
     document.getElementById('answer_4').parentNode.parentNode.classList.remove('bg-success');
     document.getElementById('answer_4').parentNode.classList.add('text-secondary');
+}
+
+function restartGame() {
+
+    document.getElementById('endscreen').style = 'display: none';
+    document.getElementById('quizBody').style = '';
+
+    currentQuestion = 0;
+    rightQuestions = 0;
+
+    init();
+    //Verhalten der Menu-links
+    document.getElementById('startlink').classList.add('active-link');
+    document.getElementById('scorelink').classList.add('disabled-link');
+    document.getElementById('scorelink').classList.remove('active-link');
+    document.getElementById('quizlink').classList.remove('active-link');
+    //Progressbar zurückgesetzt
+    document.getElementById('progress-bar').innerHTML = '';
+    document.getElementById('progress-bar').style = '';
+
 }
