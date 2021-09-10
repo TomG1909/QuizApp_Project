@@ -39,7 +39,7 @@
                         <h4>Welcome to the awsome HTML Quiz</h4>
                         <span>Ready for the challange?</span>
                     </div>
-                    <button class="btn" onclick="hideStartScreen()">START NOW ></button>
+                    <button class="btn-orange" onclick="hideStartScreen()">START NOW ></button>
                 </div>
 
 
@@ -48,8 +48,8 @@
                         <img class="logo-endscreen" src="img/brain result.png">
                         <h4>COMPLETE HTML QUIZ!</h4>
                         <div class="score-container"><span class="score">Your score</span><span class="result"><b id="score">XX</b>/<b id="amountOfQuestions">XX</b></span></div>
-                        <button>share</button>
-                        <button onclick="restartGame()">replay</button>
+                        <button class="btn bg-primary">share</button>
+                        <button onclick="restartGame()" class="btn bg-primary">replay</button>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
                     </div>
                     <div class="question-footer" id="hide">
                         <div><b id="questionNumber">1</b> von <b id="all-questions">5</b> Fragen</div>
-                        <button id="nextbutton" disabled onclick="nextQuestion()">nächste Frage</button>
+                        <button class="btn btn-darkblue" id="nextbutton" onclick="nextQuestion()" disabled>nächste Frage</button>
 
                     </div>
                 </div>

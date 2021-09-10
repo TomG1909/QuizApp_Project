@@ -3,7 +3,7 @@ body {
     justify-content: center;
     display: flex;
     align-items: center;
-    background-color: rgb(243, 228, 209) !important;
+    background-color: #FEFAEF !important;
     font-family: 'Rubik', sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 .bg-color {
-    background-color: darkblue;
+    background-color: #27355C;
 }
 
 .quizcard {
@@ -27,6 +27,7 @@ body {
 
 .card-body {
     min-width: 500px;
+    max-width: 500px;
 }
 
 .card-text {
@@ -41,7 +42,8 @@ body {
 
 .logo {
     width: 90px;
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .nav-link {
@@ -87,9 +89,18 @@ h3 {
     margin-bottom: 5px;
 }
 
-.bg-danger,
-.bg-success {
-    color: white !important;
+.progress-bar {
+    background-color: #27355C !important;
+}
+
+.bg-red {
+    background-color: #fa8c8e !important;
+    color: black !important;
+}
+
+.bg-green {
+    background-color: #B7F799 !important;
+    color: black !important;
 }
 
 .d-none {
@@ -102,17 +113,18 @@ h3 {
     min-width: 500px;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 80px;
 }
 
 .logo-endscreen {
     width: 100px;
+    margin-bottom: 30px;
 }
 
 .score-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 
@@ -137,12 +149,15 @@ h3 {
     font-weight: bold;
 }
 
-.btn {
+.btn-orange {
     background-color: orangered !important;
     color: white !important;
     position: absolute !important;
     bottom: 20px;
     right: 20px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
 }
 
 .disabled-link {
@@ -151,4 +166,28 @@ h3 {
     width: 100%;
     border-left: 5px solid transparent;
     opacity: 0.5;
+}
+
+.arrow {
+    width: 50px;
+    border: transparent;
+}
+
+button {
+    border: transparent;
+    background: transparent;
+}
+
+button:disabled {
+    opacity: 0.3;
+}
+
+.btn-darkblue {
+    background-color: #27355C !important;
+    color: white !important;
+}
+
+.btn {
+    margin-top: 10px;
+    color: white !important;
 }

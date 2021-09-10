@@ -72,10 +72,10 @@ function showStartScreen() {
 
 function showQuestion() {
 
-    if (currentQuestion >= questions.length) {
+    if (gameIsOver()) {
         showEndScreen();
 
-    } else { //Show next question
+    } else {
         updateProgressBar();
         updateToNextQuestion();
 
@@ -116,36 +116,42 @@ function updateToNextQuestion() {
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
 
+
+function gameIsOver() {
+    return currentQuestion >= questions.length;
+}
+
 function answer(selection) {
     let question = questions[currentQuestion]; //Entsprechende zugehörige Frage an der Stelle 0 gewählt
-    console.log('selected answer is', selection)
     let selectedQuestionNumber = selection.slice(-1); //Es wird auf die letzte Stelle des Strings zugegriffen, hier: answer_X
-    console.log('selectedQuestionNumber is', selectedQuestionNumber)
-    console.log('Current question is', question['right_answer']);
-
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
 
     if (selectedQuestionNumber == question['right_answer']) {
-        console.log('Richtige Antwort!!');
 
-        document.getElementById(selection).parentNode.parentNode.classList.add('bg-success');
+        document.getElementById(selection).parentNode.parentNode.classList.add('bg-green');
         document.getElementById(selection).parentNode.classList.remove('text-secondary');
         audio_success.play();
         rightQuestions++;
 
     } else {
-        console.log('Falsche Antwort!!');
-        document.getElementById(selection).parentNode.parentNode.classList.add('bg-danger');
+
+        document.getElementById(selection).parentNode.parentNode.classList.add('bg-red');
         document.getElementById(selection).parentNode.classList.remove('text-secondary');
-        document.getElementById(idOfRightAnswer).parentNode.parentNode.classList.add('bg-success');
+        document.getElementById(idOfRightAnswer).parentNode.parentNode.classList.add('bg-green');
         document.getElementById(idOfRightAnswer).parentNode.classList.remove('text-secondary');
+
         audio_fail.play();
     }
     document.getElementById('nextbutton').disabled = false;
 
 
 }
+
+
+/*function rightAnswerSelected(selectedQuestionNumber) {
+    return selectedQuestionNumber == question['right_answer'];
+}*/
 
 function nextQuestion() {
     currentQuestion++;
@@ -156,20 +162,20 @@ function nextQuestion() {
 }
 
 function resetAnswers() {
-    document.getElementById('answer_1').parentNode.parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_1').parentNode.parentNode.classList.remove('bg-success');
+    document.getElementById('answer_1').parentNode.parentNode.classList.remove('bg-red');
+    document.getElementById('answer_1').parentNode.parentNode.classList.remove('bg-green');
     document.getElementById('answer_1').parentNode.classList.add('text-secondary');
 
-    document.getElementById('answer_2').parentNode.parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_2').parentNode.parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.parentNode.classList.remove('bg-red');
+    document.getElementById('answer_2').parentNode.parentNode.classList.remove('bg-green');
     document.getElementById('answer_2').parentNode.classList.add('text-secondary');
 
-    document.getElementById('answer_3').parentNode.parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_3').parentNode.parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.parentNode.classList.remove('bg-red');
+    document.getElementById('answer_3').parentNode.parentNode.classList.remove('bg-green');
     document.getElementById('answer_3').parentNode.classList.add('text-secondary');
 
-    document.getElementById('answer_4').parentNode.parentNode.classList.remove('bg-danger');
-    document.getElementById('answer_4').parentNode.parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.parentNode.classList.remove('bg-red');
+    document.getElementById('answer_4').parentNode.parentNode.classList.remove('bg-green');
     document.getElementById('answer_4').parentNode.classList.add('text-secondary');
 }
 
