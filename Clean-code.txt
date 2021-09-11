@@ -1,0 +1,39 @@
+/**
+ * Called whenever an answer button is pressed
+ * @param {number} selection - Number between 1 and 4
+ */
+function answer(selection) {
+
+    if (rightAnswerSelected(selection)) {
+        rightAnswerLogic(selection);
+    } else {
+        wrongAnswerLogic(selection);
+    }
+
+    document.getElementById('nextbutton').disabled = false;
+}
+
+function rightAnswerLogic(selection) {
+    document.getElementById(selection).parentNode.parentNode.classList.add('bg-green');
+    document.getElementById(selection).parentNode.classList.remove('text-secondary');
+    audio_success.currentTime = 0;
+    audio_success.play();
+    rightQuestions++;
+}
+
+function wrongAnswerLogic(selection) {
+    let question = questions[currentQuestion]; //Entsprechende zugehörige Frage an der Stelle 0 gewählt
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
+    document.getElementById(selection).parentNode.parentNode.classList.add('bg-red');
+    document.getElementById(selection).parentNode.classList.remove('text-secondary');
+    document.getElementById(idOfRightAnswer).parentNode.parentNode.classList.add('bg-green');
+    document.getElementById(idOfRightAnswer).parentNode.classList.remove('text-secondary');
+    audio_fail.currentTime = 0;
+    audio_fail.play();
+}
+
+function rightAnswerSelected(selection) {
+    let selectedQuestionNumber = selection.slice(-1); //Es wird auf die letzte Stelle des Strings zugegriffen, hier: answer_X
+    let question = questions[currentQuestion];
+    return selectedQuestionNumber == question['right_answer'];
+}
