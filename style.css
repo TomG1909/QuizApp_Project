@@ -196,6 +196,10 @@ button:disabled {
     .hide-mobile {
         display: none !important;
     }
+    body {
+        align-items: unset;
+        margin-top: 50px !important;
+    }
     .bg-startscreen {
         max-width: 300px;
         min-width: 300px;
@@ -208,11 +212,11 @@ button:disabled {
     .endscreen {
         align-items: center;
         min-width: 300px;
-        min-height: 500px;
+        min-height: 400px;
         margin-top: 50px;
     }
     .card-body {
         min-width: 300px;
-        max-width: 500px;
+        max-width: 300px;
     }
 }
