@@ -167,6 +167,7 @@ function nextQuestion() {
 
 
 function resetAnswers() {
+
     document.getElementById('answer_1').parentNode.parentNode.classList.remove('bg-red');
     document.getElementById('answer_1').parentNode.parentNode.classList.remove('bg-green');
     document.getElementById('answer_1').parentNode.classList.add('text-secondary');
